@@ -52,7 +52,11 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await axios.get(
-    `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/user/show/603c3e203d55f20ef877363d`
+    `http://${
+      process.env.NEXT_PUBLIC_VERCEL_URL
+        ? process.env.NEXT_PUBLIC_VERCEL_URL
+        : 'localhost:3000'
+    }/api/user/show/603c3e203d55f20ef877363d`
   )
   return {
     props: {
